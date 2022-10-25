@@ -1,7 +1,9 @@
 require 'csv'
 namespace :import_expenses do
   desc "Upsert Expenses from CSV based on date/amount/vendor uniqueness"
-  task csv: :environment do
+
+  task :csv, [:filepath] => [:environment] do |task, args|
+    filepath = args[:filepath]
 
     existing_accounts = Account.all
     existing_expense_categories = ExpenseCategory.all
@@ -10,7 +12,7 @@ namespace :import_expenses do
     new_expenses = 0
     existing_expenses = 0
 
-    CSV.foreach(Rails.root.join('danny-castillo-expenses-2022.csv'), :headers => true, :force_quotes => true) do |row|
+    CSV.foreach(filepath, :headers => true, :force_quotes => true) do |row|
       date = DateTime.strptime(row["Date"], '%m/%d/%Y')
       amount = BigDecimal(row["Amount"])
 
