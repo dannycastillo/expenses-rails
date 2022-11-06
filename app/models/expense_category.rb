@@ -1,3 +1,3 @@
 class ExpenseCategory < ApplicationRecord
-  belongs_to :group_category
+  belongs_to :category_group
 end

@@ -3,9 +3,9 @@
 one:
   name: MyString
   slug: MyString
-  group_category: one
+  category_group: one
 
 two:
   name: MyString
   slug: MyString
-  group_category: two
+  category_group: two
