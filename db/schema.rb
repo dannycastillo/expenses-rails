@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_24_040059) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_06_182331) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,9 +25,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_040059) do
   create_table "expense_categories", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
+    t.bigint "expense_category_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["expense_category_group_id"], name: "index_expense_categories_on_expense_category_group_id"
     t.index ["slug"], name: "index_expense_categories_on_slug", unique: true
+  end
+
+  create_table "expense_category_groups", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_expense_category_groups_on_slug", unique: true
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -52,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_040059) do
     t.index ["slug"], name: "index_vendors_on_slug", unique: true
   end
 
+  add_foreign_key "expense_categories", "expense_category_groups"
   add_foreign_key "expenses", "accounts"
   add_foreign_key "expenses", "expense_categories"
   add_foreign_key "expenses", "vendors"
