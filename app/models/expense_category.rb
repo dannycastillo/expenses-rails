@@ -1,6 +1,3 @@
 class ExpenseCategory < ApplicationRecord
-
-  def normalize_slug
-    self.slug = self.slug.parameterize  
-  end
+  belongs_to :group_category
 end

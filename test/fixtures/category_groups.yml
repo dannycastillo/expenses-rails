@@ -3,9 +3,7 @@
 one:
   name: MyString
   slug: MyString
-  group_category: one
 
 two:
   name: MyString
   slug: MyString
-  group_category: two
