@@ -1,4 +1,4 @@
-class Account < ApplicationRecord
+class ExpenseCategoryGroup < ApplicationRecord
 
   def normalize_slug
     self.slug = self.slug.parameterize

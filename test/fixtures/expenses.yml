@@ -3,7 +3,7 @@
 one:
   account: one
   amount: 9.99
-  date: 2022-10-23 21:00:59
+  date: 2022-11-06 10:23:31
   description: MyString
   expense_category: one
   vendor: one
@@ -11,7 +11,7 @@ one:
 two:
   account: two
   amount: 9.99
-  date: 2022-10-23 21:00:59
+  date: 2022-11-06 10:23:31
   description: MyString
   expense_category: two
   vendor: two

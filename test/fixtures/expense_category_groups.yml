@@ -3,9 +3,7 @@
 one:
   name: MyString
   slug: MyString
-  expense_category_group: one
 
 two:
   name: MyString
   slug: MyString
-  expense_category_group: two
